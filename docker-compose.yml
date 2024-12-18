@@ -1,0 +1,13 @@
+services:
+  api:
+    build:
+      dockerfile:
+        Dockerfile
+    entrypoint: ["uvicorn", "--host", "0.0.0.0", "--workers", "5", "main:app"]
+    networks:
+      - my_network
+    ports:
+      - 8000:8000
+
+networks:
+  my_network:
